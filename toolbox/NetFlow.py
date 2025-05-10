@@ -297,7 +297,7 @@ def Ouroborosfit(sess, network, cost, dataset, train_op, batchsize, input_size, 
                 'targets': (ground_truth-mean)/std
             }
 
-            print 'prediction:', np.mean(np.mean(input_source, axis=0), axis=0)[-1], 'GT:', dataset[:, :, input_size[-1] + frame-1].mean()
+            print ('prediction:', np.mean(np.mean(input_source, axis=0), axis=0)[-1], 'GT:', dataset[:, :, input_size[-1] + frame-1].mean())
 
             if print_frame_loss:
                 print ("Epoch %d, frame %d of %d" % (epoch + 1, frame, dataset.shape[-1]-input_size[-1])),
@@ -314,7 +314,7 @@ def Ouroborosfit(sess, network, cost, dataset, train_op, batchsize, input_size, 
             else:
                 modelsaver(network=network, path=save_path, epoch_identifier=None)
 
-        print 'Epoch took:', time.time()-start_time, 's'
+        print ('Epoch took:', time.time()-start_time, 's')
 
     if save_model == -1:
         modelsaver(network=network, path=save_path, epoch_identifier=None)
